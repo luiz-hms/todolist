@@ -5,6 +5,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\TodoController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\TaskControllerController;
 
 /*
 
@@ -24,5 +25,6 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/me', [AuthController::class, 'me']);
     Route::get('/todos', [TodoController::class]);
+    Route::apiResource('todos.tasks', TaskController::class);
     
 });
