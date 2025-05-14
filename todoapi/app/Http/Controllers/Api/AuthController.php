@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -26,7 +27,8 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($request->password), 
+            //Hash::make($request->password),
         ]);
 
         $token = Auth::login($user);
@@ -45,7 +47,7 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
-    public function userAuth()
+    public function me()
     {
         return response()->json(Auth::user());
     }
