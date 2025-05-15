@@ -5,7 +5,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\TodoController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\TaskControllerController;
+use App\Http\Controllers\Api\TaskController;
 
 /*
 

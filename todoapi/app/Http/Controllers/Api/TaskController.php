@@ -9,6 +9,7 @@ use App\Models\Todo;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+
 class TaskController extends Controller
 {
     public function index($todoId)
@@ -59,6 +60,8 @@ class TaskController extends Controller
 
         return response()->json($task);
     }
+
+    
 
     public function update(UpdateTaskRequest $request, $todoId, $taskId)
     {
