@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Task;
+use App\Models\Todo;
 
-class Todo extends Model
+class Task extends Model
 {
     use HasFactory;
-    //use HasApiTokens, HasFactory, Notifiable;
+
+       //use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,17 +20,14 @@ class Todo extends Model
     protected $fillable = [
         'id',
         'title',
-        'user_id',
-        'created_at',
+        'is_completed',
+        'todo_id',
     ];
 
-    public function user()
+
+    public function todo()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Todo::class);
     }
-    
-    public function tasks()
-    {
-        return $this->hasMany(Task::class);
-    }
+
 }

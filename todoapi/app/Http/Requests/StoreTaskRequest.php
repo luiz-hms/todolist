@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTodoRequest extends FormRequest
+class StoreTaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,6 +23,7 @@ class UpdateTodoRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'is_completed' => 'boolean',
         ];
     }
 }
